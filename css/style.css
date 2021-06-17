@@ -1,0 +1,154 @@
+.attribution { color: var(--clr-neutral-60); font-size: 11px; text-align: center; margin-top: 2rem; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+*, 
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-bg-main: hsl(233, 47%, 7%);
+  --clr-bg-card: hsl(244, 38%, 16%);
+  --clr-accent: hsl(277, 64%, 61%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-75: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-60: hsla(0, 0%, 100%, 0.6);
+
+  --fn-body: 'Inter';
+  --fn-accent: 'Lexend Deca';
+}
+
+body {
+  background-color: var(--clr-bg-main);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fn-body);
+  font-size: 0.9375rem;
+  min-height: 100vh;
+}
+
+mark {
+  background-color: transparent;
+  color: var(--clr-accent);
+}
+
+.preview-card {
+  background-color: var(--clr-bg-card);
+  border-radius: 7px;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  width: min(90%, 21.09375rem);
+}
+
+.preview-card--img {
+  background: linear-gradient(rgba(170, 92, 219, 0.4), rgba(170, 92, 219, 0.4)), url(../images/image-header-mobile.jpg);
+  background-size: cover;
+  filter: saturate(2) brightness(60%) contrast(110%);
+  height: 250px;
+  position: relative;
+}
+
+.preview-card--content {
+  padding-inline: 1.5rem;
+}
+
+.preview-card--heading,
+.preview-card--stats,
+.preview-card--stats-heading {
+  font-weight: 700;
+}
+
+.preview-card--heading,
+.preview-card--stats {
+  color: var(--clr-neutral-100);
+}
+
+.preview-card--stats {
+  margin: 0;
+}
+
+.preview-card--heading {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  max-width: 18ch;
+}
+
+.preview-card--paragraph {
+  color: var(--clr-neutral-75);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 37ch;
+}
+
+.preview-card--stats-heading {
+  color: var(--clr-neutral-60);
+  font-size: 0.8rem;
+  letter-spacing: 0.0625rem;
+  margin-bottom: 2.2rem;
+  margin-top: 0.3125rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1440px) {
+  .preview-card {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: left;
+    width: min(80%, 72rem);
+  }
+
+  .preview-card--img {
+    background: linear-gradient(rgba(170, 92, 219, 0.3), rgba(170, 92, 219, 0.3)), url(../images/image-header-desktop.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-card--content {
+    padding: 4.5rem;
+    width: 100%;
+    display: grid;
+    grid-column-gap: 2.4rem;
+    grid-template-areas: 
+    'title title title title'
+    'paragraph paragraph paragraph paragraph'
+    'stats1 stats2 stats3 space';
+  }
+  .preview-card--heading {
+    font-size: 2.2rem;
+    grid-area: title;
+    margin-top: 0;
+  }
+  .preview-card--paragraph {
+    grid-area: paragraph;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+  }
+  .preview-card--content > h2:nth-of-type(2) {
+    grid-area: stats1;
+  }
+  .preview-card--content > h2:nth-of-type(3) {
+    grid-area: stats2;
+  }
+  .preview-card--content > h2:nth-of-type(4) {
+    grid-area: stats3;
+  }
+  .preview-card--content > p:nth-of-type(2) {
+    grid-area: stats1;
+  }
+  .preview-card--content > p:nth-of-type(3) {
+    grid-area: stats2;
+  }
+  .preview-card--content > p:nth-of-type(4) {
+    grid-area: stats3;
+  }
+  .preview-card--stats-heading {
+    font-family: var(--fn-accent);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transform: translateY(2rem);
+  }
+}
